@@ -23,6 +23,7 @@ body {
   --bg-secondary: #2e3241;
   --color-primary: #6ccacb;
   --white: #fff;
+  --color-gray: #818389;
 }
 
 .btn {
@@ -34,7 +35,7 @@ body {
 }
 /* ########## header section style ########### */
 .container {
-  padding: 1.5rem 2.5rem;
+  padding: 1.5rem 2.5rem 0rem  2.5rem;
 }
 
 nav {
@@ -119,4 +120,38 @@ nav ul li {
 
 body.dark-mode {
   background: var(--bg-primary);
+}
+
+/* ############## trade summary section ############### */
+.trade-summary-container {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+}
+.trade-summary-section h3 {
+  font-size: 2rem;
+  color: var(--color-gray);
+  text-align: center;
+}
+
+.trade-summary h2 {
+  font-size: 2.7rem;
+  font-weight: 500;
+  color: var(--color-primary);
+}
+
+.trade-summary p {
+  font-size: 1.5rem;
+  color: var(--color-gray);
+}
+
+.average-price h2 {
+  font-size: 5rem;
+  color: var(--white);
+}
+
+.average-price p{
+  font-size: 1.2rem;
 }
