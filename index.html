@@ -12,12 +12,32 @@
       <nav>
         <h1>HOLDINFO</h1>
         <ul>
-          <li class="btn">INR</li>
-          <li class="btn">BTC</li>
-          <li class="btn">BUY BTC</li>
+          <li>
+            <select class="btn" name="" id="">
+              <option value="INR">INR</option>
+            </select>
+          </li>
+          <li>
+            <select class="btn" name="" id="">
+              <option value="BTC">BTC</option>
+              <option value="ETH">ETH</option>
+              <option value="USDT">USDT</option>
+              <option value="XRP">XRP</option>
+              <option value="TRX">TRX</option>
+              <option value="DASH">DASH</option>
+              <option value="ZEC">ZEC</option>
+              <option value="XEM">XEM</option>
+              <option value="WIN">WIN</option>
+              <option value="BIT">BIT</option>
+              <option value="WRX">WRX</option>
+            </select>
+          </li>
+          <li><a href="#" class="buy-btc btn">BUY BTC</a></li>
         </ul>
         <div class="right-header">
-          <h3 class="timer">60</h3>
+          <div class="timer">
+            <span>60</span>
+          </div>
           <button class="btn connect-telegram-btn">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -87,6 +107,61 @@
       </div>
     </div>
 
+    <!-- top trade table  -->
+    <div class="container top-trade-table">
+      <table>
+        <thead>
+          <tr>
+            <td>#</td>
+            <td>Platform</td>
+            <td>Last Traded Price</td>
+            <td>Buy / Sell Price</td>
+            <td>Difference</td>
+            <td>Savings</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>WazirX</td>
+            <td>₹ 22,88,878</td>
+            <td>₹ 22,88,878 / ₹ 22,88,879</td>
+            <td>-4.71 %</td>
+            <td>▼ ₹ 1,13,153</td>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>WazirX</td>
+            <td>₹ 22,88,878</td>
+            <td>₹ 22,88,878 / ₹ 22,88,879</td>
+            <td>-4.71 %</td>
+            <td>▼ ₹ 1,13,153</td>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>WazirX</td>
+            <td>₹ 22,88,878</td>
+            <td>₹ 22,88,878 / ₹ 22,88,879</td>
+            <td>-4.71 %</td>
+            <td>▼ ₹ 1,13,153</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- footer  -->
+    <hr class="footer-divider" />
+    <footer class="container">
+      <div class="footer-info">
+        <p>Copyright © 2019 HodlInfo.com</p>
+        <p>Support</p>
+      </div>
+      <div class="footer-fixed-btn">
+        <button class="footer-btn">Add holdinfo to home screen</button>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <!-- script file  -->
     <script src="app.js"></script>
   </body>
