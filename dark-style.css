@@ -42,3 +42,17 @@ body.dark-mode table thead td {
 table tbody td:nth-child(5).down, table tbody td:last-child.down{
   color: #DA5757;
 }
+
+
+
+@media (max-width:576px){
+  body.dark-mode .top-trade-table{
+    overflow-x: auto;
+  }
+  #body.dark-mode table td {
+    font-size: 12px;
+     border-bottom: 5px solid var(--bg-primary);
+  }
+  body.dark-mode table td {
+    white-space: nowrap;  }
+}

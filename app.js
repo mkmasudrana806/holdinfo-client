@@ -62,12 +62,11 @@ async function fetchTickerData() {
 
 fetchTickerData();
 
-
 // Set the initial countdown value
 let countdown = 60;
 function updateTimer() {
   if (countdown === 0) {
-    // fetchTickerData();
+    fetchTickerData();
     updateProgress(countdown); 
     countdown = 60;
 
