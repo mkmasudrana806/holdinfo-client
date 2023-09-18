@@ -7,18 +7,33 @@ const axiosIns = axios.create({
 // select the toogle button and body to apply the dark / day theme
 const toggleBox = document.querySelector(".toggle-btn");
 const bodyEle = document.querySelector("#body");
+const darkStyleSheet = document.getElementById("dark-style");
+
+function nightMode() {
+  darkStyleSheet.setAttribute("href", "dark-style.css");
+  bodyEle.classList.add("dark-mode");
+  localStorage.setItem("mode", "night");
+  toggleBox.classList.add("active");
+}
+
+function dayMode() {
+  darkStyleSheet.removeAttribute("href");
+  bodyEle.classList.remove("dark-mode");
+  toggleBox.classList.remove("active");
+  localStorage.setItem("mode", "day");
+}
 
 // To retrieve the mode preference when the page loads
 document.addEventListener("DOMContentLoaded", function () {
   const mode = localStorage.getItem("mode");
+  // after loading page, set mode based on mode preference saved in localStorage
   if (mode === "night") {
+    nightMode();
+    // when the mode is null then the light mode by default
+  } else if (mode === null) {
     bodyEle.classList.add("dark-mode");
-    localStorage.setItem("mode", "night");
-    toggleBox.classList.add("active");
   } else {
-    bodyEle.classList.remove("dark-mode");
-    toggleBox.classList.remove("active");
-    localStorage.setItem("mode", "day");
+    dayMode();
   }
 });
 
@@ -26,14 +41,10 @@ document.addEventListener("DOMContentLoaded", function () {
 function toggleMode() {
   if (bodyEle.classList.contains("dark-mode")) {
     // Switch to day mode
-    bodyEle.classList.remove("dark-mode");
-    toggleBox.classList.remove("active");
-    localStorage.setItem("mode", "day");
+    dayMode();
   } else {
     // Switch to night mode
-    bodyEle.classList.add("dark-mode");
-    localStorage.setItem("mode", "night");
-    toggleBox.classList.add("active");
+    nightMode();
   }
 }
 

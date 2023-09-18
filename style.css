@@ -17,8 +17,7 @@
 body {
   min-height: 100vh;
   overflow-x: hidden;
-  /* background: var(--bg-primary); */
-  transition: 0.5s;
+  transition: 0.3s;
 }
 p,
 h1,
@@ -54,11 +53,12 @@ nav {
   align-items: center;
 }
 
-nav h1 {
+nav h1 a {
   font-size: 3rem;
   font-weight: 700;
   color: var(--color-primary);
   text-transform: uppercase;
+  cursor: pointer;
 }
 
 nav ul {
@@ -82,15 +82,6 @@ nav ul li a {
   transition: 0.3s ease;
 }
 
-body.dark-mode nav ul li > select {
-  color: var(--white);
-  background: var(--bg-secondary);
-}
-
-body.dark-mode nav ul li a {
-  color: var(--white);
-  background: var(--bg-secondary);
-}
 
 .right-header {
   display: flex;
@@ -120,10 +111,11 @@ body.dark-mode nav ul li a {
   column-gap: 5px;
   background: var(--color-primary);
   color: var(--white);
+  cursor: pointer;
 }
 .connect-telegram-btn svg {
-  width: 25px;
-  height: 25px;
+  width: 23px;
+  height: 23px;
   color: var(--white);
 }
 
@@ -133,15 +125,16 @@ body.dark-mode nav ul li a {
   width: 75px;
   border-radius: 50px;
   padding: 4px;
-  height: 2.31rem;
+  height: 2.3rem;
   background: rgb(238, 238, 238);
   transition: 0.3s ease-in-out;
+  cursor: pointer;
 }
 
 .toggle-btn .inner-box {
   position: absolute;
-  height: 30px;
-  width: 30px;
+  height: 28px;
+  width: 28px;
   border-radius: 50%;
   background: var(--color-primary);
   transition: 0.3s ease-in-out;
@@ -157,9 +150,7 @@ body.dark-mode nav ul li a {
   transform: translateX(37px);
 }
 
-body.dark-mode {
-  background: var(--bg-primary);
-}
+
 
 /* ############## trade summary section ############### */
 .trade-summary-container {
@@ -187,9 +178,7 @@ body.dark-mode {
   color: #a5a7af;
 }
 
-body.dark-mode .trade-summary h2 {
-  color: var(--color-primary);
-}
+
 .average-price h2 {
   font-size: 4.4rem;
   font-weight: 500;
@@ -197,9 +186,7 @@ body.dark-mode .trade-summary h2 {
   transition: all 0.3s ease;
 }
 
-body.dark-mode .average-price h2 {
-  color: var(--white);
-}
+
 
 .average-price p {
   font-size: 1.1rem;
@@ -218,12 +205,6 @@ table tbody tr {
   color: #0c0f48;
 }
 
-body.dark-mode table tbody tr {
-  color: var(--white);
-}
-body.dark-mode table tbody tr {
-  background: var(--bg-secondary);
-}
 
 table thead td {
   border-bottom: 15px solid var(--white);
@@ -234,12 +215,7 @@ table tbody td {
   border-bottom: 15px solid var(--white);
 }
 
-body.dark-mode table tbody td,
-body.dark-mode table thead td {
-  border-bottom: 15px solid var(--bg-primary);
-  font-size: 1.5rem;
-  font-weight: 600;
-}
+
 
 table thead tr:first-child {
   /* color: var(--color-gray); */
@@ -271,9 +247,6 @@ table td {
   margin-bottom: 4.5rem;
 }
 
-/* body {
-  position: relative;
-} */
 
 .footer-fixed-btn {
   position: fixed;

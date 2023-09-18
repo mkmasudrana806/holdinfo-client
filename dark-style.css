@@ -1,0 +1,40 @@
+
+/* style for body  */
+body.dark-mode {
+  background: var(--bg-primary);
+}
+
+/* style for header  */
+body.dark-mode nav ul li > select {
+  color: var(--white);
+  background: var(--bg-secondary);
+}
+
+body.dark-mode nav ul li a {
+  color: var(--white);
+  background: var(--bg-secondary);
+}
+
+/* style for trade summary  */
+body.dark-mode .trade-summary h2 {
+  color: var(--color-primary);
+}
+
+body.dark-mode .average-price h2 {
+  color: var(--white);
+}
+
+/* style for trade table  */
+body.dark-mode table tbody tr {
+  color: var(--white);
+}
+body.dark-mode table tbody tr {
+  background: var(--bg-secondary);
+}
+
+body.dark-mode table tbody td,
+body.dark-mode table thead td {
+  border-bottom: 15px solid var(--bg-primary);
+  font-size: 1.5rem;
+  font-weight: 600;
+}
