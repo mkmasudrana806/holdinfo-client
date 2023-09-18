@@ -4,6 +4,7 @@ const axiosIns = axios.create({
   withCredentials: true,
 });
 
+// ######################## dark and light mode toggle #####################
 // select the toogle button and body to apply the dark / day theme
 const toggleBox = document.querySelector(".toggle-btn");
 const bodyEle = document.querySelector("#body");
@@ -31,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
     nightMode();
     // when the mode is null then the light mode by default
   } else if (mode === null) {
-    bodyEle.classList.add("dark-mode");
+    nightMode();
   } else {
     dayMode();
   }
@@ -52,22 +53,97 @@ toggleBox.addEventListener("click", () => {
   toggleMode();
 });
 
-async function fetchTickerData() {}
+// ####################### fetch ticker data #########################
+async function fetchTickerData() {
+  const { data } = await axiosIns.get("/ticker/top-ten-ticker");
+  console.log(data);
+  updateTableData(data);
+}
 
-// Get the timer element
-const timerElement = document.querySelector(".timer");
+fetchTickerData();
+
+
 // Set the initial countdown value
 let countdown = 60;
 function updateTimer() {
-  timerElement.textContent = countdown;
   if (countdown === 0) {
-    fetchTickerData();
+    // fetchTickerData();
+    updateProgress(countdown); 
     countdown = 60;
+
     setTimeout(updateTimer, 1000);
   } else {
+    updateProgress(countdown);
     countdown--;
     setTimeout(updateTimer, 1000);
   }
 }
 // Start the timer
 updateTimer();
+
+// ################### counter updateProgress ############ 
+
+// timer counter animation 
+function updateProgress(counterValue) {
+  const circleElement = document.getElementById("circle-bg");
+  const counterElement = document.getElementById("counter");
+
+  counterElement.textContent = counterValue;
+  const circumference = 2 * Math.PI * 45;
+  const dashOffset = ((60 - counterValue) / 60) * circumference;
+
+  circleElement.style.strokeDasharray = `${circumference} ${circumference}`;
+  circleElement.style.strokeDashoffset = dashOffset;
+}
+
+
+
+// ######################## update ticker table data #####################
+
+function updateTableData(data) {
+  // console.log(data);
+  const table = document.getElementById("table-body");
+  table.innerHTML = "";
+  data.forEach((item, index) => {
+    // Calculate the difference
+    const difference = Math.abs(item.last - item.buy);
+    // Calculate the savings
+    let savings = item.last > item.buy ? difference : -difference;
+    // Calculate the percentage change
+    const percentageChange = ((item.last - item.sell) / item.sell) * 100;
+    const row = document.createElement("tr");
+
+    row.innerHTML = `
+    <td>${index + 1}</td>
+    <td>${item.platform}</td>
+    <td>₹ ${item.last.toLocaleString("en-IN")}</td>
+    <td>₹ ${item.buy.toLocaleString("en-IN")} / ${item.sell.toLocaleString(
+      "en-US"
+    )}</td>
+
+    ${
+      percentageChange < 0
+        ? `
+    <td class="down">${percentageChange.toFixed(2)} %</td>
+    <td class="down">▼ ₹ ${savings.toFixed(3).toLocaleString("en-US")}</td>
+    `
+        : `
+        <td>${percentageChange.toFixed(2)} %</td>
+    <td>▲ ₹ ${savings.toFixed(3).toLocaleString("en-US")}</td>
+        `
+    }
+    `;
+    table.appendChild(row);
+  });
+}
+
+// let counter = 4;
+
+// const intervalId = setInterval(() => {
+//   counter--;
+//   if (counter >= 0) {
+//     updateProgress(counter);
+//   } else {
+//     setInterval(intervalId);
+//   }
+// }, 1000);

@@ -43,6 +43,34 @@ td {
   border: none;
 }
 /* ########## header section style ########### */
+#svg-container {
+  width: 35px;
+  height: 35px;
+}
+
+#circle-bg {
+  fill: none;
+  stroke: var(--color-primary);
+  stroke-width: 8px;
+  stroke-dasharray: 0 0;
+  /* transition: stroke-dasharray 1s linear; */
+}
+
+#border-circle {
+  fill: none;
+  stroke: var(--color-gray);
+  stroke-width: 8px;
+}
+
+#counter-text {
+  text-anchor: middle;
+  dominant-baseline: middle;
+  font-size: 2.6rem;
+  font-weight: 700;
+  fill: var(--color-primary);
+}
+
+/* main body  */
 .container {
   padding: 1.5rem 2.5rem 0rem 2.5rem;
 }
@@ -82,7 +110,6 @@ nav ul li a {
   transition: 0.3s ease;
 }
 
-
 .right-header {
   display: flex;
   align-items: center;
@@ -109,6 +136,7 @@ nav ul li a {
   display: inline-flex;
   align-items: center;
   column-gap: 5px;
+  font-size: 1rem;
   background: var(--color-primary);
   color: var(--white);
   cursor: pointer;
@@ -150,8 +178,6 @@ nav ul li a {
   transform: translateX(37px);
 }
 
-
-
 /* ############## trade summary section ############### */
 .trade-summary-container {
   margin-top: 1.5rem;
@@ -178,15 +204,12 @@ nav ul li a {
   color: #a5a7af;
 }
 
-
 .average-price h2 {
   font-size: 4.4rem;
   font-weight: 500;
   color: #0c0f48;
   transition: all 0.3s ease;
 }
-
-
 
 .average-price p {
   font-size: 1.1rem;
@@ -205,27 +228,34 @@ table tbody tr {
   color: #0c0f48;
 }
 
-
 table thead td {
   border-bottom: 15px solid var(--white);
 }
 
 table tbody td {
-  padding: 1rem;
+  padding: 1rem 0.4rem;
   border-bottom: 15px solid var(--white);
 }
 
-
-
 table thead tr:first-child {
-  /* color: var(--color-gray); */
   color: #a5a7af;
 }
 
 table tbody td {
   font-weight: 500;
   font-size: 1.1rem;
+  text-transform: capitalize;
   transition: 0.3s ease;
+}
+
+table tbody td:last-child,
+table tbody td:nth-child(5) {
+  color: var(--color-primary);
+}
+
+table tbody td:nth-child(5).down,
+table tbody td:last-child.down {
+  color: #da5757;
 }
 
 table td {
@@ -246,7 +276,6 @@ table td {
   color: var(--color-gray);
   margin-bottom: 4.5rem;
 }
-
 
 .footer-fixed-btn {
   position: fixed;
