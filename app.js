@@ -1,6 +1,6 @@
 // axios config settings
 const axiosIns = axios.create({
-  baseURL: "http://127.0.0.1:5000",
+  baseURL: "https://ticker-server.vercel.app",
   withCredentials: true,
 });
 
@@ -67,7 +67,7 @@ let countdown = 60;
 function updateTimer() {
   if (countdown === 0) {
     fetchTickerData();
-    updateProgress(countdown); 
+    updateProgress(countdown);
     countdown = 60;
 
     setTimeout(updateTimer, 1000);
@@ -80,9 +80,9 @@ function updateTimer() {
 // Start the timer
 updateTimer();
 
-// ################### counter updateProgress ############ 
+// ################### counter updateProgress ############
 
-// timer counter animation 
+// timer counter animation
 function updateProgress(counterValue) {
   const circleElement = document.getElementById("circle-bg");
   const counterElement = document.getElementById("counter");
@@ -94,8 +94,6 @@ function updateProgress(counterValue) {
   circleElement.style.strokeDasharray = `${circumference} ${circumference}`;
   circleElement.style.strokeDashoffset = dashOffset;
 }
-
-
 
 // ######################## update ticker table data #####################
 
