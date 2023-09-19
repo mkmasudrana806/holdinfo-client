@@ -55,9 +55,13 @@ toggleBox.addEventListener("click", () => {
 
 // ####################### fetch ticker data #########################
 async function fetchTickerData() {
-  const { data } = await axiosIns.get("/ticker/top-ten-ticker");
-  console.log(data);
-  updateTableData(data);
+  await axiosIns
+    .get("/ticker/top-ten-ticker")
+    .then((res) => {
+      // console.log(res.data);
+      updateTableData(res.data);
+    })
+    .catch((err) => console.error(err));
 }
 
 fetchTickerData();
@@ -98,6 +102,7 @@ function updateProgress(counterValue) {
 // ######################## update ticker table data #####################
 
 function updateTableData(data) {
+  console.log("update ticker table data function called", data);
   // console.log(data);
   const table = document.getElementById("table-body");
   table.innerHTML = "";
@@ -133,14 +138,3 @@ function updateTableData(data) {
     table.appendChild(row);
   });
 }
-
-// let counter = 4;
-
-// const intervalId = setInterval(() => {
-//   counter--;
-//   if (counter >= 0) {
-//     updateProgress(counter);
-//   } else {
-//     setInterval(intervalId);
-//   }
-// }, 1000);
