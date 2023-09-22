@@ -1,6 +1,7 @@
 // axios config settings
 const axiosIns = axios.create({
   baseURL: "https://ticker-server.vercel.app",
+  // baseURL: "http://localhost:5000",
   withCredentials: true,
 });
 
@@ -54,8 +55,8 @@ toggleBox.addEventListener("click", () => {
 });
 
 // ####################### fetch ticker data #########################
-async function fetchTickerData() {
-  await axiosIns
+function fetchTickerData() {
+  axiosIns
     .get("/ticker/top-ten-ticker")
     .then((res) => {
       // console.log(res.data);
@@ -100,10 +101,7 @@ function updateProgress(counterValue) {
 }
 
 // ######################## update ticker table data #####################
-
 function updateTableData(data) {
-  console.log("update ticker table data function called", data);
-  // console.log(data);
   const table = document.getElementById("table-body");
   table.innerHTML = "";
   data.forEach((item, index) => {
@@ -114,7 +112,6 @@ function updateTableData(data) {
     // Calculate the percentage change
     const percentageChange = ((item.last - item.sell) / item.sell) * 100;
     const row = document.createElement("tr");
-
     row.innerHTML = `
     <td>${index + 1}</td>
     <td>${item.platform}</td>
@@ -137,4 +134,5 @@ function updateTableData(data) {
     `;
     table.appendChild(row);
   });
+  console.log("data after updated table", data[0]);
 }
